@@ -68,6 +68,9 @@ def testB():
     
     result=a1.get_from('{ "from" : "80 Gibraltar Pounds", "to" : "2349.5741654147 Ethiopian Birr", "success" : true, "error" : "" }')
     cornelltest.assert_equals('80 Gibraltar Pounds',result)
+    
+    result=a1.get_from('{ "from" : "", "to" : "", "success" : false, "error" : "Exchange currency code is invalid." }')
+    cornelltest.assert_equals('',result)
 
     #test cases for get_to
     result=a1.get_to('{ "from" : "2.5 United States Dollars", "to" : "2.24075 Euros", "success" : true, "error" : "" }')
@@ -81,6 +84,9 @@ def testB():
     
     result=a1.get_to('{ "from" : "80 Gibraltar Pounds", "to" : "2349.5741654147 Ethiopian Birr", "success" : true, "error" : "" }')
     cornelltest.assert_equals('2349.5741654147 Ethiopian Birr',result)
+    
+    result=a1.get_to'{ "from" : "", "to" : "", "success" : false, "error" : "Exchange currency code is invalid." }')
+    cornelltest.assert_equals('',result)
     
     #test cases for has_error
     result=a1.has_error('{ "from" : "", "to" : "", "success" : false, "error" : "Currency amount is invalid." }')
