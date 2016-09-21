@@ -31,16 +31,21 @@ def after_space(s):
   
 #Part B
 def first_inside_quotes(s):
-    """Returns: The first substring of s between two (double) quote characters
+    """Returns: The first substring of s between two 
+    (double) quote characters
     
-    A quote character is one that is inside a string, not one that delimits it.
-    We typically use single quotes (') to delimit a string if we want to use a double quote character (") inside of it.
+    A quote character is one that is inside a string, 
+    not one that delimits it.
+    We typically use single quotes (') to delimit a string 
+    if we want to use a double quote character (") inside of it.
     
     Example: If s is 'A "B C" D', this function returns 'B C'
-    Example: If s is 'A "B C" D "E F" G', this function still returns 'B C' because it only picks the first such substring.
+    Example: If s is 'A "B C" D "E F" G', this function still
+    returns 'B C' because it only picks the first such substring.
     
     Parameter s: a string to search
-    Precondition: s a string with at least two (double) quote characters."""
+    Precondition: s a string with at least two 
+    (double) quote characters."""
     
     start=s.index('"')
     tail=s[start+1:]
@@ -52,10 +57,14 @@ def first_inside_quotes(s):
 def get_from(json):
     """Returns: The FROM value in the response to a currency query.
     
-    Given a JSON response to a currency query, this returns the string inside double quotes (")
-    immediately following the keyword "from". For example, if the JSON is
-    '{"from":"2 United States Dollars","to":"1.825936 Euros","success":true,"error":""}'
-    then this function returns '2 United States Dollars' (not '"2 United States Dollars"').
+    Given a JSON response to a currency query, 
+    this returns the string inside double quotes (")
+    immediately following the keyword "from". 
+    For example, if the JSON is
+    '{"from":"2 United States Dollars","to"
+    :"1.825936 Euros","success":true,"error":""}'
+    then this function returns '2 United States Dollars' 
+    (not '"2 United States Dollars"').
     It returns the empty string if the JSON is the result of on invalid query.
     
     Parameter json: a json string to parse
@@ -67,9 +76,11 @@ def get_from(json):
 def get_to(json):
     """Returns: The TO value in the response to a currency query.
     
-    Given a JSON response to a currency query, this returns the string inside double quotes (")
+    Given a JSON response to a currency query, 
+    this returns the string inside double quotes (")
     immediately following the keyword "to". For example, if the JSON is
-    '{"from":"2 United States Dollars","to":"1.825936 Euros","success":true,"error":""}'
+    '{"from":"2 United States Dollars","to":
+    "1.825936 Euros","success":true,"error":""}'
     then this function returns '1.825936 Euros' (not '"1.825936 Euros"').
     It returns the empty string if the JSON is the result of on invalid query.
     
@@ -82,9 +93,12 @@ def get_to(json):
 def has_error(json):
     """Returns: True if the query has an error; False otherwise.
     
-    Given a JSON response to a currency query, this returns the opposite of the value following the keyword "valid". For example, if the JSON is
+    Given a JSON response to a currency query,
+    this returns the opposite of the value following the keyword "valid". 
+    For example, if the JSON is
     '{"from":"","to":"","success":false,"error":"Source currency code is invalid."}'
-    then the query is not valid, so this function returns True (It does NOT return the message 'Source currency code is invalid').
+    then the query is not valid, so this function returns True 
+    (It does NOT return the message 'Source currency code is invalid').
     
     Parameter json: a json string to parse
     Precondition: json is the response to a currency query"""
