@@ -38,6 +38,9 @@ def testA():
     result=a1.after_space('abc  def')
     cornelltest.assert_equals(' def',result)
     
+    result=a1.after_space('abc def ')
+    cornelltest.assert_equals('def ',result)
+    
 
 def testB():
     #test cases for first_inside_quotes
