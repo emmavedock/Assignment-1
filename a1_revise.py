@@ -96,7 +96,8 @@ def has_error(json):
     Given a JSON response to a currency query,
     this returns the opposite of the value following the keyword "valid". 
     For example, if the JSON is
-    '{"from":"","to":"","success":false,"error":"Source currency code is invalid."}'
+    '{"from":"","to":"","success":false,"error":
+    "Source currency code is invalid."}'
     then the query is not valid, so this function returns True 
     (It does NOT return the message 'Source currency code is invalid').
     
@@ -132,8 +133,8 @@ def currency_response(currency_from, currency_to, amount_from):
     Parameter amount_from: amount of currency to convert
     Precondition: amount_from is a float"""
     
-    url = ('http://cs1110.cs.cornell.edu/2016fa/a1server.php?from=' + currency_from + '&to=' + currency_to +
-           '&amt=' + str(amount_from))
+    url = ('http://cs1110.cs.cornell.edu/2016fa/a1server.php?from='
+           + currency_from + '&to=' + currency_to + '&amt=' + str(amount_from))
     webPage = urllib2.urlopen(url)
     json = webPage.read()
     return json
@@ -160,7 +161,6 @@ def exchange(currency_from, currency_to, amount_from):
     
     Parameter currency_from: the currency on hand
     Precondition: currency_from is a string for a valid currency code
-
     Parameter currency_to: the currency to convert to
     Precondition: currency_to is a string for a valid currency code
     
