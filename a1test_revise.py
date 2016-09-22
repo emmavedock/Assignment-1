@@ -9,8 +9,7 @@ test the various functions in the module a1."""
 import cornelltest
 import a1
 
-#need four test cases for each
-#needs specification, test for part A
+
 def testA():
     #test cases for before_space function
     result=a1.before_space('abc def')
@@ -85,7 +84,7 @@ def testB():
     result=a1.get_to('{ "from" : "80 Gibraltar Pounds", "to" : "2349.5741654147 Ethiopian Birr", "success" : true, "error" : "" }')
     cornelltest.assert_equals('2349.5741654147 Ethiopian Birr',result)
     
-    result=a1.get_to'{ "from" : "", "to" : "", "success" : false, "error" : "Exchange currency code is invalid." }')
+    result=a1.get_to('{ "from" : "", "to" : "", "success" : false, "error" : "Exchange currency code is invalid." }')
     cornelltest.assert_equals('',result)
     
     #test cases for has_error
@@ -115,6 +114,9 @@ def testC():
     
     result = a1.currency_response('GIP', 'ETB', 80.0)
     cornelltest.assert_equals('{ "from" : "80 Gibraltar Pounds", "to" : "2349.5741654147 Ethiopian Birr", "success" : true, "error" : "" }', result)
+    
+    result = a1.currency_response('GIP', 'ZZZ', 80.0)
+    cornelltest.assert_equals('{ "from" : "", "to" : "", "success" : false, "error" : "Exchange currency code is invalid." }',result)
 
 
 def testD():
